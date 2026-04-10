@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Wholeness Project — Coming Soon</title>
+  <meta name="description" content="A space for men to heal from shame around pornography and sexual addiction — without judgment. South Florida and nationwide." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Root ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:        #F7F4EF;
+      --cream-dark:   #EDE8DF;
+      --cream-deeper: #E3DDD3;
+      --forest:       #2C4A3E;
+      --forest-dark:  #1D3328;
+      --forest-light: #3D6456;
+      --earth:        #8B6847;
+      --earth-light:  #A67D58;
+      --sand:         #C4A880;
+      --sand-light:   #D9C4A4;
+      --sage:         #7A9E8A;
+      --sage-light:   #A3BFAF;
+      --text-dark:    #1A1510;
+      --text-mid:     #4A3D32;
+      --text-soft:    #7A6E62;
+      --text-light:   #A89C90;
+      --border:       rgba(44, 74, 62, 0.12);
+      --border-warm:  rgba(196, 168, 128, 0.25);
+      --font-serif:   'Playfair Display', Georgia, serif;
+      --font-sans:    'Inter', -apple-system, sans-serif;
+      --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+      --max:          1100px;
+      --pad:          clamp(1.25rem, 5vw, 3rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Top bar ──────────────────────────────────────────── */
+    .top-bar {
+      background-color: var(--forest);
+      text-align: center;
+      padding: 0.6rem var(--pad);
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── Wordmark ─────────────────────────────────────────── */
+    .site-header {
+      padding: 1.8rem var(--pad);
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .wordmark {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 500;
+      color: var(--forest);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    .wordmark span { color: var(--earth); }
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    .hero {
+      padding: clamp(4rem, 10vw, 8rem) var(--pad) clamp(3rem, 8vw, 6rem);
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 720px) {
+      .hero { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+    }
+
+    .hero__eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--earth);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero__heading {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.22;
+      color: var(--forest);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero__heading em {
+      font-style: italic;
+      color: var(--earth);
+    }
+
+    .hero__body {
+      font-size: clamp(1rem, 1.4vw, 1.08rem);
+      color: var(--text-mid);
+      line-height: 1.85;
+    }
+
+    .hero__body p + p { margin-top: 1.1rem; }
+
+    .hero__sig {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--earth-light);
+      margin-top: 1.75rem;
+    }
+
+    /* Decorative circle */
+    .hero__visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero__circle {
+      width: clamp(240px, 34vw, 400px);
+      height: clamp(240px, 34vw, 400px);
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 35%, var(--sand-light) 0%, var(--cream-dark) 55%, var(--cream-deeper) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .hero__circle::before {
+      content: '';
+      position: absolute;
+      inset: -14px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-warm);
+    }
+
+    .hero__circle::after {
+      content: '';
+      position: absolute;
+      inset: -28px;
+      border-radius: 50%;
+      border: 1px solid rgba(196,168,128,0.14);
+    }
+
+    .hero__circle-text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 2vw, 1.65rem);
+      font-style: italic;
+      color: var(--forest);
+      text-align: center;
+      padding: 2rem;
+      line-height: 1.45;
+    }
+
+    /* ── Divider ──────────────────────────────────────────── */
+    .divider { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+    .divider hr { border: none; border-top: 1px solid var(--border-warm); }
+
+    /* ── Research band ────────────────────────────────────── */
+    .research-band {
+      background-color: var(--forest-dark);
+      padding: clamp(3rem, 7vw, 5rem) var(--pad);
+    }
+
+    .research-band__inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .research-band__label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--sand);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 800px) {
+      .research-grid { grid-template-columns: 1fr; }
+    }
+
+    .research-card {
+      background-color: rgba(255,255,255,0.05);
+      border: 1px solid rgba(196,168,128,0.18);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .research-card__finding {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      color: var(--cream);
+      line-height: 1.6;
+    }
+
+    .research-card__citation {
+      font-size: 0.78rem;
+      color: rgba(247,244,239,0.45);
+      line-height: 1.5;
+    }
+
+    .research-card__link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--sand);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: auto;
+      transition: color 0.2s;
+    }
+
+    .research-card__link:hover { color: var(--sand-light); }
+
+    .research-card__link::after {
+      content: '→';
+      transition: transform 0.2s;
+    }
+
+    .research-card__link:hover::after { transform: translateX(3px); }
+
+    /* ── Sections ─────────────────────────────────────────── */
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(3rem, 7vw, 5.5rem) var(--pad);
+    }
+
+    .section__label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--sage);
+      margin-bottom: 0.75rem;
+    }
+
+    .section__heading {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      color: var(--forest);
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
+
+    .section__sub {
+      font-size: 1.05rem;
+      color: var(--text-soft);
+      max-width: 600px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Resource Cards ───────────────────────────────────── */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .resource-card {
+      background-color: var(--cream-dark);
+      border: 1px solid var(--border-warm);
+      border-radius: 14px;
+      padding: 1.75rem 2rem;
+      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(28,20,12,0.10);
+    }
+
+    .resource-card__tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background-color: rgba(122,158,138,0.18);
+      color: var(--forest-light);
+      padding: 0.3em 0.8em;
+      border-radius: 100px;
+      align-self: flex-start;
+    }
+
+    .resource-card__name {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--forest);
+      line-height: 1.25;
+    }
+
+    .resource-card__desc {
+      font-size: 0.94rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .resource-card__link {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--earth);
+      letter-spacing: 0.02em;
+      margin-top: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .resource-card__link::after { content: '→'; transition: transform 0.2s; }
+    .resource-card:hover .resource-card__link::after { transform: translateX(4px); }
+
+    /* ── Mailchimp signup ─────────────────────────────────── */
+    .signup-section {
+      background-color: var(--forest);
+      padding: clamp(3.5rem, 8vw, 6rem) var(--pad);
+    }
+
+    .signup-inner {
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .signup-inner .section__label { color: var(--sand-light); }
+
+    .signup-inner .section__heading {
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+    }
+
+    .signup-inner .section__sub {
+      color: rgba(247,244,239,0.68);
+      max-width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    /* Mailchimp form — custom styled */
+    #mc_embed_signup {
+      background: transparent !important;
+      font-family: var(--font-sans) !important;
+      width: 100% !important;
+    }
+
+    #mc_embed_signup h2 { display: none; } /* hide default "Subscribe" heading */
+
+    #mc_embed_signup .indicates-required { display: none; }
+
+    .mc-field-group {
+      margin-bottom: 0.75rem !important;
+      text-align: left;
+    }
+
+    .mc-field-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: rgba(247,244,239,0.6);
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.04em;
+    }
+
+    .mc-field-group label .asterisk { color: var(--sand); margin-left: 2px; }
+
+    .mc-field-group input[type="email"],
+    .mc-field-group input[type="text"] {
+      width: 100%;
+      padding: 0.8rem 1.1rem;
+      border: 1.5px solid rgba(196,168,128,0.3);
+      border-radius: 8px;
+      background-color: rgba(255,255,255,0.07);
+      color: var(--cream);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+
+    .mc-field-group input[type="email"]:focus,
+    .mc-field-group input[type="text"]:focus {
+      border-color: var(--sand);
+    }
+
+    .mc-field-group input::placeholder { color: rgba(247,244,239,0.3); }
+
+    /* Two-column layout for first + last name */
+    .mc-name-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    @media (max-width: 480px) { .mc-name-row { grid-template-columns: 1fr; } }
+
+    /* Submit button */
+    #mc-embedded-subscribe {
+      width: 100%;
+      margin-top: 0.5rem;
+      padding: 0.9rem 1.6rem;
+      background-color: var(--earth) !important;
+      color: var(--cream) !important;
+      border: none !important;
+      border-radius: 8px !important;
+      font-family: var(--font-sans) !important;
+      font-size: 0.95rem !important;
+      font-weight: 600 !important;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: background-color 0.2s var(--ease);
+    }
+
+    #mc-embedded-subscribe:hover { background-color: var(--earth-light) !important; }
+
+    /* Response messages */
+    #mce-responses { margin-top: 0.75rem; }
+
+    #mce-error-response,
+    #mce-success-response {
+      font-size: 0.9rem;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    #mce-error-response {
+      background-color: rgba(200,80,80,0.15);
+      color: #f4a0a0;
+      border: 1px solid rgba(200,80,80,0.3);
+    }
+
+    #mce-success-response {
+      background-color: rgba(122,158,138,0.2);
+      color: var(--sage-light);
+      border: 1px solid rgba(122,158,138,0.4);
+    }
+
+    .signup-note {
+      font-size: 0.76rem;
+      color: rgba(247,244,239,0.35);
+      margin-top: 0.75rem;
+    }
+
+    /* ── Footer ───────────────────────────────────────────── */
+    footer {
+      padding: 2rem var(--pad);
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    footer p { font-size: 0.82rem; color: var(--text-light); }
+    footer a { color: var(--earth); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="top-bar">We're building something good here — we'll let you know when it's ready</div>
+
+  <!-- Wordmark -->
+  <header class="site-header">
+    <a href="#" class="wordmark">The Wholeness <span>Project</span></a>
+  </header>
+
+  <!-- ── Hero ───────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero__content">
+      <p class="hero__eyebrow">A message from Saul</p>
+      <h1 class="hero__heading">We don't give a plant some beer, cut off its light and expect it to grow into a <em>healthy plant.</em></h1>
+      <div class="hero__body">
+        <p>
+          Why do we expect something else for us? Pornography is everywhere, it's handed to boys before they know what to do with it, normalized by a culture that profits from it, and silently destroys the lives of men who don't know where to turn or even what to call what they're feeling.
+        </p>
+        <p>
+          What I've seen, over and over, is that it's not just the behavior that does the damage. It's the shame. The secrecy. The belief that this makes you less of a man, less of a husband, less of a father. That something is fundamentally wrong with you.
+        </p>
+        <p>
+          The Wholeness Project was created so it doesn't have to stay that way. There is something in the way — but it can move. You don't have to white-knuckle through this alone, and you don't have to blow up your life to get help. You just have to take one honest step.
+        </p>
+        <p>
+          I'm building a space for education, community and real resources where men can do exactly that. Leave your email and I'll reach out when we're ready.
+        </p>
+      </div>
+      <p class="hero__sig">— Saul</p>
+    </div>
+
+    <div class="hero__visual">
+      <div class="hero__circle">
+        <p class="hero__circle-text">you are more<br/>than your<br/>worst moments</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Research band ──────────────────────────────────── -->
+  <div class="research-band">
+    <div class="research-band__inner">
+      <p class="research-band__label">What the research says</p>
+      <div class="research-grid">
+
+        <div class="research-card">
+          <p class="research-card__finding">
+            "Consuming porn was the second strongest predictor that a relationship would suffer."
+          </p>
+          <p class="research-card__citation">— Perry, 2017 &nbsp;|&nbsp; Study tracking couples over time</p>
+          <a class="research-card__link" href="https://fightthenewdrug.org/how-porn-can-negatively-impact-love-and-intimacy/" target="_blank" rel="noopener">
+            How Porn Can Negatively Impact Love And Intimacy
+          </a>
+        </div>
+
+        <div class="research-card">
+          <p class="research-card__finding">
+            "Even quitting porn for a short time can lessen its negative effects and have positive effects on consumers' lives and relationships."
+          </p>
+          <p class="research-card__citation">— Fernandez, Kuss &amp; Griffiths, 2020</p>
+          <a class="research-card__link" href="https://fightthenewdrug.org/studies-show-recovering-from-porn-is-possible/" target="_blank" rel="noopener">
+            These 4 Studies Show Recovering From A Porn Habit Is Absolutely Possible
+          </a>
+        </div>
+
+        <div class="research-card">
+          <p class="research-card__finding">
+            "While feeling guilt can motivate healthy change, feeling shame actually fuels problematic porn habits."
+          </p>
+          <p class="research-card__citation">— Bőthe, Tóth-Király, Bella, Potenza, Demetrovics &amp; Orosz, 2021</p>
+          <a class="research-card__link" href="https://fightthenewdrug.org/how-porn-can-hurt-a-consumers-partner/" target="_blank" rel="noopener">
+            How Porn Can Hurt A Consumer's Partner
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="divider" style="margin-top:0;"><hr /></div>
+
+  <!-- ── Resources ─────────────────────────────────────── -->
+  <section class="section" id="resources">
+    <p class="section__label">Support &amp; Resources</p>
+    <h2 class="section__heading">Some resources, available now</h2>
+    <p class="section__sub">
+      You don't have to wait for us to launch. These organizations are doing serious work around pornography, sexual addiction, and the shame that surrounds it — many of them free.
+    </p>
+
+    <div class="resources-grid">
+
+      <a href="https://guardyoureyes.com" target="_blank" rel="noopener" class="resource-card">
+        <span class="resource-card__tag">Jewish Community</span>
+        <h3 class="resource-card__name">Guard Your Eyes</h3>
+        <p class="resource-card__desc">
+          An online community of over 30,000 Jewish men navigating pornography addiction — built specifically for those who also carry the weight of religious identity and community expectation. Peer support, accountability partnerships, and recovery tools, all rooted in a shame-free approach. Free.
+        </p>
+        <span class="resource-card__link">guardyoureyes.com</span>
+      </a>
+
+      <a href="https://amudim.org" target="_blank" rel="noopener" class="resource-card">
+        <span class="resource-card__tag">Crisis &amp; Advocacy</span>
+        <h3 class="resource-card__name">Amudim</h3>
+        <p class="resource-card__desc">
+          A confidential Jewish crisis resource center offering professional case management, referrals, and direct support for individuals and families dealing with sexual addiction, abuse, and related mental health challenges. Operating across 66 countries, completely confidential, and free of charge.
+        </p>
+        <span class="resource-card__link">amudim.org</span>
+      </a>
+
+      <a href="https://okclarity.com" target="_blank" rel="noopener" class="resource-card">
+        <span class="resource-card__tag">Find a Therapist</span>
+        <h3 class="resource-card__name">OKclarity</h3>
+        <p class="resource-card__desc">
+          An anonymous online directory of vetted therapists, psychiatrists, and coaches who serve the Jewish community — many with experience in sexual addiction and compulsive behavior. Browse privately, no account required. Most providers offer a free first consultation.
+        </p>
+        <span class="resource-card__link">okclarity.com</span>
+      </a>
+
+      <a href="https://joinfortify.com" target="_blank" rel="noopener" class="resource-card">
+        <span class="resource-card__tag">Recovery Platform</span>
+        <h3 class="resource-card__name">Fortify</h3>
+        <p class="resource-card__desc">
+          A structured online recovery program built specifically for pornography addiction — combining education, behavioral tracking, and a peer community across 155+ countries. A free version is available for adults; no therapist required to start.
+        </p>
+        <span class="resource-card__link">joinfortify.com</span>
+      </a>
+
+      <a href="https://saa-recovery.org" target="_blank" rel="noopener" class="resource-card">
+        <span class="resource-card__tag">12-Step Support</span>
+        <h3 class="resource-card__name">Sex Addicts Anonymous</h3>
+        <p class="resource-card__desc">
+          A 12-step fellowship where members define their own recovery goals and find community with others who understand compulsive sexual behavior from the inside. In-person and online meetings available worldwide. No cost to attend — ever.
+        </p>
+        <span class="resource-card__link">saa-recovery.org</span>
+      </a>
+
+      <a href="https://iitap.com/page/csat" target="_blank" rel="noopener" class="resource-card">
+        <span class="resource-card__tag">Certified Specialists</span>
+        <h3 class="resource-card__name">Find a CSAT Therapist</h3>
+        <p class="resource-card__desc">
+          CSAT (Certified Sex Addiction Therapist) is the gold-standard clinical credential for treating sexual compulsivity and pornography addiction. Use IITAP's directory to find a certified specialist in South Florida or anywhere nationwide who specializes in exactly this work.
+        </p>
+        <span class="resource-card__link">iitap.com</span>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="divider"><hr /></div>
+
+  <!-- ── Mailchimp signup ───────────────────────────────── -->
+  <section class="signup-section" id="mailing-list">
+    <div class="signup-inner">
+      <p class="section__label">Stay connected</p>
+      <h2 class="section__heading">Be the first to know when we launch</h2>
+      <p class="section__sub">
+        The Wholeness Project is in development. Leave your email and you'll be the first to hear — no spam, nothing shared, just a note from Saul when the doors open.
+      </p>
+
+      <div id="mc_embed_shell">
+        <div id="mc_embed_signup">
+          <form action="https://gmail.us22.list-manage.com/subscribe/post?u=a3cfe1db6094d1a4a309aab64&amp;id=579a28ca11&amp;f_id=00b5c2e1f0"
+                method="post"
+                id="mc-embedded-subscribe-form"
+                name="mc-embedded-subscribe-form"
+                target="_blank">
+
+            <div id="mc_embed_signup_scroll">
+
+              <!-- Name row -->
+              <div class="mc-name-row">
+                <div class="mc-field-group">
+                  <label for="mce-FNAME">First Name <span class="asterisk">*</span></label>
+                  <input type="text" name="FNAME" id="mce-FNAME" required placeholder="First name" />
+                </div>
+                <div class="mc-field-group">
+                  <label for="mce-LNAME">Last Name</label>
+                  <input type="text" name="LNAME" id="mce-LNAME" placeholder="Last name" />
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="mc-field-group">
+                <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                <input type="email" name="EMAIL" id="mce-EMAIL" required placeholder="your@email.com" />
+              </div>
+
+              <!-- Mailchimp anti-bot honeypot (required, must stay hidden) -->
+              <div aria-hidden="true" style="position:absolute;left:-5000px;">
+                <input type="text" name="b_a3cfe1db6094d1a4a309aab64_579a28ca11" tabindex="-1" value="" />
+              </div>
+
+              <!-- Response messages -->
+              <div id="mce-responses">
+                <div id="mce-error-response" style="display:none;"></div>
+                <div id="mce-success-response" style="display:none;"></div>
+              </div>
+
+              <!-- Submit -->
+              <input type="submit" name="subscribe" id="mc-embedded-subscribe" value="Notify Me" />
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <p class="signup-note">No spam. Unsubscribe any time.</p>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer>
+    <p>
+      © 2025 The Wholeness Project &nbsp;·&nbsp; South Florida &amp; Nationwide &nbsp;·&nbsp;
+      <a href="mailto:baselinestudiofl@gmail.com">Contact Saul</a>
+    </p>
+  </footer>
+
+  <!-- Mailchimp validation script -->
+  <script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+  <script>
+    (function($) {
+      window.fnames = new Array();
+      window.ftypes = new Array();
+      fnames[0] = 'EMAIL';  ftypes[0] = 'email';
+      fnames[1] = 'FNAME';  ftypes[1] = 'text';
+      fnames[2] = 'LNAME';  ftypes[2] = 'text';
+    }(jQuery));
+    var $mcj = jQuery.noConflict(true);
+  </script>
+
+</body>
+</html>
